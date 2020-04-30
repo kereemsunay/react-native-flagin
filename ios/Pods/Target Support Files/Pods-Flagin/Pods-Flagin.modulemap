@@ -1,0 +1,6 @@
+module Pods_Flagin {
+  umbrella header "Pods-Flagin-umbrella.h"
+
+  export *
+  module * { export * }
+}

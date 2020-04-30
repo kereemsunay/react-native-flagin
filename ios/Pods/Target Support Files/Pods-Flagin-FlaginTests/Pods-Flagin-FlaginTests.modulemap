@@ -1,0 +1,6 @@
+module Pods_Flagin_FlaginTests {
+  umbrella header "Pods-Flagin-FlaginTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

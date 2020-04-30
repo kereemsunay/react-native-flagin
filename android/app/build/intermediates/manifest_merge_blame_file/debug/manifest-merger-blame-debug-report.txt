@@ -1,0 +1,109 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.flagin"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="28" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/Users/kereem/Flagin/android/app/src/debug/AndroidManifest.xml:5:5-77
+11-->/Users/kereem/Flagin/android/app/src/debug/AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:4:5-67
+12-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:4:22-64
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->[com.facebook.flipper:flipper:0.33.1] /Users/kereem/.gradle/caches/transforms-2/files-2.1/810af2dde26ef33ac597537b8933f1f7/jetified-flipper-0.33.1/AndroidManifest.xml:16:5-76
+13-->[com.facebook.flipper:flipper:0.33.1] /Users/kereem/.gradle/caches/transforms-2/files-2.1/810af2dde26ef33ac597537b8933f1f7/jetified-flipper-0.33.1/AndroidManifest.xml:16:22-73
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:24:5-79
+14-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:24:22-76
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->[com.google.android.gms:play-services-measurement-sdk-api:17.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/80cc11aedb7f154e52d3f777f0049e4b/play-services-measurement-sdk-api-17.1.0/AndroidManifest.xml:25:5-68
+15-->[com.google.android.gms:play-services-measurement-sdk-api:17.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/80cc11aedb7f154e52d3f777f0049e4b/play-services-measurement-sdk-api-17.1.0/AndroidManifest.xml:25:22-65
+16
+17    <application
+17-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:6:5-28:19
+18        android:name="com.flagin.MainApplication"
+18-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:7:7-38
+19        android:allowBackup="false"
+19-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:11:7-34
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/4f509a65121478d6153615d7ef5b7c5f/core-1.1.0/AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:9:7-41
+23        android:label="@string/app_name"
+23-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:8:7-39
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:10:7-52
+25        android:theme="@style/AppTheme"
+25-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:12:7-38
+26        android:usesCleartextTraffic="true" >
+26-->/Users/kereem/Flagin/android/app/src/debug/AndroidManifest.xml:7:18-53
+27        <activity
+27-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:13:7-23:18
+28            android:name="com.flagin.MainActivity"
+28-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:14:9-37
+29            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+29-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:16:9-86
+30            android:label="@string/app_name"
+30-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:15:9-41
+31            android:launchMode="singleTask"
+31-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:17:9-40
+32            android:windowSoftInputMode="adjustResize" >
+32-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:18:9-51
+33            <intent-filter>
+33-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:19:9-22:25
+34                <action android:name="android.intent.action.MAIN" />
+34-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:20:13-65
+34-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:20:21-62
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:21:13-73
+36-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:21:23-70
+37            </intent-filter>
+38        </activity>
+39        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+39-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:24:7-84
+39-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:24:17-81
+40
+41        <meta-data
+41-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:25:7-27:69
+42            android:name="com.google.android.gms.ads.APPLICATION_ID"
+42-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:26:13-69
+43            android:value="ca-app-pub-9243058106757495~5194029195" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+43-->/Users/kereem/Flagin/android/app/src/main/AndroidManifest.xml:27:13-67
+44        <activity
+44-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:29:9-33:64
+45            android:name="com.google.android.gms.ads.AdActivity"
+45-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:30:13-65
+46            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+46-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:31:13-122
+47            android:exported="false"
+47-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:32:13-37
+48            android:theme="@android:style/Theme.Translucent" />
+48-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:33:13-61
+49
+50        <provider
+50-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:35:9-39:39
+51            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+51-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:36:13-76
+52            android:authorities="com.flagin.mobileadsinitprovider"
+52-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:37:13-73
+53            android:exported="false"
+53-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:38:13-37
+54            android:initOrder="100" />
+54-->[com.google.android.gms:play-services-ads-lite:19.1.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/556100715768a32078f1f7fa8fe33e88/play-services-ads-lite-19.1.0/AndroidManifest.xml:39:13-36
+55
+56        <meta-data
+56-->[com.google.android.gms:play-services-basement:17.0.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/0d8c4b9e41867344a346ab35d2616b2d/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+57            android:name="com.google.android.gms.version"
+57-->[com.google.android.gms:play-services-basement:17.0.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/0d8c4b9e41867344a346ab35d2616b2d/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+58            android:value="@integer/google_play_services_version" />
+58-->[com.google.android.gms:play-services-basement:17.0.0] /Users/kereem/.gradle/caches/transforms-2/files-2.1/0d8c4b9e41867344a346ab35d2616b2d/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+59    </application>
+60
+61</manifest>
