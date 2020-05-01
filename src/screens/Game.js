@@ -17,7 +17,6 @@ import datas_s from "../lang/data_s";
 import datas_g from "../lang/data_g";
 import Swiper from "react-native-deck-swiper";
 import { Transitioning, Transition } from "react-native-reanimated";
-//import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Overlay from "react-native-modal-overlay";
@@ -63,7 +62,8 @@ export default class Game extends Component {
   constructor(props) {
     super(props);
     global.kontrol = "1";
-    global.correct=null
+    global.correct=null;
+    global.Rewarded=0;
     this.state = {
       data:null,
       count: 0,
@@ -83,9 +83,23 @@ export default class Game extends Component {
 
   componentDidMount() {
     //this._loadFontsAsync();
+
+  
+  
+  }
+  UNSAFE_componentWillUnmount() {
+    AdMobRewarded.removeAllListeners();
+    
+  }
+
+  UNSAFE_componentWillMount(){
+    this.changeLanguage();
     AdMobRewarded.setTestDevices([AdMobRewarded.simulatorId]);
-    AdMobRewarded.addEventListener('rewarded', reward =>
-    console.log('AdMobRewarded => rewarded', reward),
+    AdMobRewarded.addEventListener('rewarded', reward =>{
+      console.log('AdMobRewarded => rewarded', reward),
+      //global.Rewarded=1;
+      this.hideOverlay();
+    }
   );
   AdMobRewarded.addEventListener('adLoaded', () =>
     console.log('AdMobRewarded => adLoaded'),
@@ -97,8 +111,7 @@ export default class Game extends Component {
     console.log('AdMobRewarded => adOpened'),
   );
   AdMobRewarded.addEventListener('videoStarted', () =>{
-    console.log('AdMobRewarded => videoStarted'),
-    this.hideOverlay();
+    console.log('AdMobRewarded => videoStarted')
   }
     
   );
@@ -108,26 +121,21 @@ export default class Game extends Component {
   AdMobRewarded.addEventListener('adLeftApplication', () =>
     console.log('AdMobRewarded => adLeftApplication'),
   );
-  
-  
-  }
-  UNSAFE_componentWillUnmount() {
-    AdMobRewarded.removeAllListeners();
-    
-  }
-
-  UNSAFE_componentWillMount(){
-    this.changeLanguage();
-    
   }
 
 
 
-   showRewarded =  () => {
-    AdMobRewarded.requestAd();
+   
+  showRewarded = async () => {
+    try {
+      
+      await AdMobRewarded.requestAd()
+     
       AdMobRewarded.showAd()
+    } catch (e) {
+      console.tron.log(e.message)
+    }
   }
-  
 
 
   changeLanguage(){
@@ -196,7 +204,6 @@ export default class Game extends Component {
             type="slide-bottom"
             durationMs={ANIMATION_DURATION}
             interpolation="easeIn"
-            
           />
           <Transition.Together>
             <Transition.In type="fade" durationMs={ANIMATION_DURATION} />
@@ -428,12 +435,16 @@ export default class Game extends Component {
                 },
               }}
             />
+            
           </View>
+          
           <View style={styles.bottomContainer}>
+            
             <Transitioning.View
               ref={transitionRef}
               transition={transition}
               style={styles.bottomContainerMeta}
+              
             >
               <CardDetails index={this.state.index} />
             </Transitioning.View>
