@@ -439,7 +439,7 @@ export default class Game extends Component {
             </Transitioning.View>
             <View style={styles.bottomContainerButtons}>
               <MaterialCommunityIcons.Button
-                name="close"
+                name="close-circle"
                 size={70}
                 backgroundColor="transparent"
                 underlayColor="transparent"
@@ -451,7 +451,7 @@ export default class Game extends Component {
                 }}
               />
               <MaterialCommunityIcons.Button
-                name="circle-outline"
+                name="checkbox-marked-circle"
                 size={70}
                 backgroundColor="transparent"
                 underlayColor="transparent"
