@@ -63,6 +63,7 @@ export default class Game extends Component {
   constructor(props) {
     super(props);
     global.kontrol = "1";
+    global.correct=null
     this.state = {
       data:null,
       count: 0,
@@ -72,48 +73,43 @@ export default class Game extends Component {
       running: true,
       cid: null,
       modalVisible: false,
+      correct:null
     };
+    AdMobRewarded.setAdUnitID('ca-app-pub-9243058106757495/8882842829');
   }
-  state = {
-    disableRewardedBtn: false,
-  };
+  
 
 
 
-  UNSAFE_componentDidMount() {
-     
+  componentDidMount() {
     //this._loadFontsAsync();
+    AdMobRewarded.setTestDevices([AdMobRewarded.simulatorId]);
+    AdMobRewarded.addEventListener('rewarded', reward =>
+    console.log('AdMobRewarded => rewarded', reward),
+  );
+  AdMobRewarded.addEventListener('adLoaded', () =>
+    console.log('AdMobRewarded => adLoaded'),
+  );
+  AdMobRewarded.addEventListener('adFailedToLoad', error =>
+    console.log("asdasdas",error),
+  );
+  AdMobRewarded.addEventListener('adOpened', () =>
+    console.log('AdMobRewarded => adOpened'),
+  );
+  AdMobRewarded.addEventListener('videoStarted', () =>{
+    console.log('AdMobRewarded => videoStarted'),
+    this.hideOverlay();
+  }
     
-    AdMobRewarded.addEventListener("rewardedVideoDidRewardUser", () =>
-      console.log("rewarded")
-    );
-    AdMobRewarded.addEventListener("rewardedVideoDidLoad", () =>{
-      this.setState({ running: false });console.log("videoloaded");
-    }
-      
-    );
-    AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>{
-      console.log("failedtoload")}
-      
-    );
-    AdMobRewarded.addEventListener("rewardedVideoDidOpen", () =>{
-      
-      console.log("opened")}
-      
-    );
-    AdMobRewarded.addEventListener("rewardedVideoDidStart", () =>{
-      console.log("rewardedVideoDidStart");
-      
-      
-    });
-    AdMobRewarded.addEventListener("rewardedVideoDidClose", () => {
-      console.log("kapandı");
-      
-    });
-    AdMobRewarded.addEventListener("rewardedVideoWillLeaveApplication", () =>{ 
-      console.log("leaveapp");}
-     
-    );
+  );
+  AdMobRewarded.addEventListener('adClosed', () => {
+    console.log('AdMobRewarded => adClosed');
+  });
+  AdMobRewarded.addEventListener('adLeftApplication', () =>
+    console.log('AdMobRewarded => adLeftApplication'),
+  );
+  
+  
   }
   UNSAFE_componentWillUnmount() {
     AdMobRewarded.removeAllListeners();
@@ -122,14 +118,16 @@ export default class Game extends Component {
 
   UNSAFE_componentWillMount(){
     this.changeLanguage();
+    
   }
 
 
-  showRewarded = async () => {
-    AdMobRewarded.setAdUnitID("ca-app-pub-9243058106757495/8882842829");
-AdMobRewarded.requestAd().then(() => AdMobRewarded.showAd());
 
-  };
+   showRewarded =  () => {
+    AdMobRewarded.requestAd();
+      AdMobRewarded.showAd()
+  }
+  
 
 
   changeLanguage(){
@@ -170,14 +168,7 @@ AdMobRewarded.requestAd().then(() => AdMobRewarded.showAd());
     this.setState({ modalVisible: false });
   }
 
-HideOverlayWithDelay=()=>{
- 
-    setTimeout(function(){
 
-    }, 5000);
-
-    this.setState({ modalVisible: false });
-  }
 
   onPress = () => {
     this.setState({ count: this.state.count + 1 });
@@ -197,7 +188,7 @@ HideOverlayWithDelay=()=>{
 
   render() {
    
-      const ANIMATION_DURATION = 50;
+      const ANIMATION_DURATION = 10;
 
       const transition = (
         <Transition.Sequence>
@@ -234,6 +225,7 @@ HideOverlayWithDelay=()=>{
         if (degisken == "1") {
           return this.state.data[index].name;
         } else {
+          
           return chooseCountry(index);
         }
       };
@@ -242,6 +234,7 @@ HideOverlayWithDelay=()=>{
         while (newCountry == this.state.data[index].name) {
           newCountry = this.state.data[Math.floor(Math.random() * this.state.data.length)].name; //yanlış eşleşene kadar değiştir.
         }
+       
         return newCountry;
       };
 
@@ -253,7 +246,7 @@ HideOverlayWithDelay=()=>{
 
       sayacArtir = () => {
         if (degisken == "1") {
-          
+          console.log("doğrusayacartır",this.state.index)
           return this.onPress();
         } else {
           this.setState({ running: false });
@@ -270,6 +263,9 @@ HideOverlayWithDelay=()=>{
       };
 
       Card = ({ card }) => {
+        console.log(card.name);
+        global.correct=card.name;
+        
         return (
           <View style={styles.card}>
             
@@ -284,6 +280,7 @@ HideOverlayWithDelay=()=>{
             />
           </View>
         );
+        
       };
 
       CardDetails = ({ index }) => (
@@ -299,7 +296,7 @@ HideOverlayWithDelay=()=>{
             <TouchableOpacity
               onPress={() => {
                 
-                this.showRewarded().then(()=>this.HideOverlayWithDelay())
+                this.showRewarded();
                 //this.hideOverlay();
               }}
             >
@@ -331,6 +328,7 @@ HideOverlayWithDelay=()=>{
 
       return (
         <SafeAreaView style={styles.container}>
+          
           <View
             style={styles.scoreHeader}
           >
@@ -382,7 +380,7 @@ HideOverlayWithDelay=()=>{
               //onSwiped={this.state.onSwiped}
               //onTapCard={() => swiperRef.current.swipeLeft()}
               cardVerticalMargin={0}
-              stackSize={stackSize}
+              stackSize={1}
               stackScale={10}
               stackSeparation={10}
               animateOverlayLabelsOpacity
@@ -492,6 +490,16 @@ HideOverlayWithDelay=()=>{
               <Text style={[styles.text, styles.heading]}>
                 Score: {this.state.count}
               </Text>
+              <Text
+                      style={{
+                        fontSize: 24,
+                        textAlign: "center",
+                        fontFamily: "Product-SansRegular",
+                        color:"#32cd32"
+                      }}
+                    >
+                      Answer: {global.correct}
+                    </Text>
             </View>
 
             <View style={styles.elementcontainer}></View>
@@ -544,6 +552,7 @@ HideOverlayWithDelay=()=>{
                 </View>
               </View>
             </View>
+           
           </Overlay>
         </SafeAreaView>
       );
