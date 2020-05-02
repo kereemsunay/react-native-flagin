@@ -36,3 +36,9 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+android/.idea/codeStyles/Project.xml
+android/.idea/gradle.xml
+android/.idea/modules.xml
+android/.idea/runConfigurations.xml
+android/.idea/vcs.xml
+android/.idea/workspace.xml

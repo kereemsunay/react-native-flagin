@@ -229,6 +229,7 @@ export default class Game extends Component {
 
       SecimFunc = (index) => {
         degisken = randomFunc();
+        global.correct = this.state.data[index].name;
         if (degisken == "1") {
           return this.state.data[index].name;
         } else {
@@ -387,7 +388,7 @@ export default class Game extends Component {
               //onSwiped={this.state.onSwiped}
               //onTapCard={() => swiperRef.current.swipeLeft()}
               cardVerticalMargin={0}
-              stackSize={1}
+              stackSize={stackSize}
               stackScale={10}
               stackSeparation={10}
               animateOverlayLabelsOpacity
