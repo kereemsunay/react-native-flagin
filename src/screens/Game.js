@@ -18,7 +18,7 @@ import datas_g from "../lang/data_g";
 import Swiper from "react-native-deck-swiper";
 import { Transitioning, Transition } from "react-native-reanimated";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import Sound from "react-native-sound";
 import Overlay from "react-native-modal-overlay";
 import { shuffle } from "lodash";
 import CountDown from "react-native-countdown-component";
@@ -219,6 +219,24 @@ export default class Game extends Component {
       const swiperRef = React.createRef();
       const transitionRef = React.createRef();
       var degisken = "0";
+
+      const sound_ta = new Sound(require("../assets/sound/trueAnswer.wav"),null,(error)=>{
+        if(error){
+          console.log("Ses yüklenemedi");
+        }});
+      const sound_fa = new Sound(require("../assets/sound/falseAnswer.wav"),null,(error)=>{
+        if(error){
+          console.log("Ses yüklenemedi");
+        }});
+      const sound_t = new Sound(require("../assets/sound/time.wav"),null,(error)=>{
+        if(error){
+          console.log("Ses yüklenemedi");
+        }});
+      const sound_e = new Sound(require("../assets/sound/endGame.wav"),null,(error)=>{
+        if(error){
+          console.log("Ses yüklenemedi");
+        }});
+
       randomFunc = () => {
         //yazı tura fonksiyonu
         var RandomNumber = Math.floor(Math.random() * 2);
@@ -254,17 +272,21 @@ export default class Game extends Component {
 
       sayacArtir = () => {
         if (degisken == "1") {
-          console.log("doğrusayacartır",this.state.index)
+          sound_ta.play();
           return this.onPress();
         } else {
+          sound_fa.play();
           this.setState({ running: false });
           return this.showOverlay();
         }
       };
+
       carpiArtır = () => {
         if (degisken == "0") {
+          sound_ta.play();
           return this.onPress();
         } else {
+          sound_fa.play();
           this.setState({ running: false });
           return this.showOverlay();
         }
