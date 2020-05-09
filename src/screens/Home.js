@@ -5,13 +5,9 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-  Dimensions,
 } from "react-native";
 import { 
   AdMobBanner, 
-  AdMobInterstitial, 
-  PublisherBanner,
-  AdMobRewarded
 } from 'react-native-admob'
 
 import {Picker} from '@react-native-community/picker';
@@ -63,7 +59,7 @@ export default class Home extends Component {
             </TouchableOpacity>
             <Text
               style={{
-                fontFamily: "Product-SansRegular",
+                fontFamily: "ProductSansRegular",
                 fontSize: 16,
                 padding: 5,
                 fontWeight: "700",
@@ -145,7 +141,7 @@ const styles = StyleSheet.create({
     resizeMode: "center",
   },
   button: {
-    fontFamily: "Product-SansRegular",
+    fontFamily: "ProductSansRegular",
     fontSize: 16,
     padding: 10,
     marginTop: 10,
