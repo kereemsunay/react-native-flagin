@@ -209,9 +209,6 @@ com/facebook/react/uimanager/common/UIManagerType.class
 com/facebook/soloader/DoNotOptimize.class
 com/facebook/soloader/SoLoader.class
 com/facebook/widget/text/span/BetterImageSpan$BetterImageSpanAlignment.class
-com/flagin/BuildConfig.class
-com/flagin/MainApplication$1.class
-com/flagin/MainApplication.class
 com/google/ads/mediation/MediationServerParameters$Parameter.class
 com/google/android/gms/ads/AdRequest$MaxAdContentRating.class
 com/google/android/gms/ads/AdRequest$TagForUnderAgeOfConsent.class
@@ -336,6 +333,9 @@ com/google/android/material/tabs/TabLayout$TabGravity.class
 com/google/android/material/tabs/TabLayout$TabIndicatorGravity.class
 com/google/android/material/textfield/TextInputLayout$BoxBackgroundMode.class
 com/google/android/material/textfield/TextInputLayout$EndIconMode.class
+com/ivirzivir/flagin/BuildConfig.class
+com/ivirzivir/flagin/MainApplication$1.class
+com/ivirzivir/flagin/MainApplication.class
 com/swmansion/reanimated/MapUtils.class
 com/swmansion/rnscreens/ScreenStackHeaderConfigViewManager.class
 com/th3rdwave/safeareacontext/SafeAreaContextPackage.class

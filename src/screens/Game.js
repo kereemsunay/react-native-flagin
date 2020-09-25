@@ -32,7 +32,6 @@ const colors = {
   black: "#000000",
 };
 
-//console.disableYellowBox = true;
 export default class Game extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerTitleAlign: "center",
@@ -48,7 +47,6 @@ export default class Game extends Component {
         source={require("../assets/FLAGIN.png")}
       />
     ),
-    //title:'FlagIn'
   });
 
   constructor(props) {
@@ -108,7 +106,6 @@ export default class Game extends Component {
   showRewarded = async () => {
     try {
       await AdMobRewarded.requestAd();
-
       AdMobRewarded.showAd();
     } catch (e) {
       console.tron.log(e.message);
@@ -217,24 +214,7 @@ export default class Game extends Component {
         }
       }
     );
-    const sound_t = new Sound(
-      require("../assets/sound/time.wav"),
-      null,
-      (error) => {
-        if (error) {
-          console.log("Ses yüklenemedi");
-        }
-      }
-    );
-    const sound_e = new Sound(
-      require("../assets/sound/endGame.wav"),
-      null,
-      (error) => {
-        if (error) {
-          console.log("Ses yüklenemedi");
-        }
-      }
-    );
+   
 
     randomFunc = () => {
       //yazı tura fonksiyonu
@@ -369,7 +349,6 @@ export default class Game extends Component {
               until={timer}
               onFinish={() => {
                 this.showOverlay();
-                sound_e.play();
               }}
               timeToShow={["S"]}
               timeLabels={{ s: null }}
