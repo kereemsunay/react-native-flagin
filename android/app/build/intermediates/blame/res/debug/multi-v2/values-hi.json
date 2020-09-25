@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/kereem/Flagin/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
+            "outputFile": "/Users/kereem/Github/react-native-flagin/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
             "map": [
                 {
                     "source": "/Users/kereem/.gradle/caches/transforms-2/files-2.1/0d8c4b9e41867344a346ab35d2616b2d/jetified-play-services-basement-17.0.0/res/values-hi/values.xml",
